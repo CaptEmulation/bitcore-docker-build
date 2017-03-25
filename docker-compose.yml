@@ -1,0 +1,23 @@
+version: '2'
+services:
+  drone-data-volume:
+    image: busybox
+    network_mode: none
+    volumes:
+    - /mnt/volume-nyc1-01:/bitcoin
+    command:
+    - /bin/true
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.scheduler.affinity:host_label: type=bitcore
+  drone-server:
+    image: docker.soapbubble.online:5000/bitpay/bitcore:latest
+    environment:
+      BWS_STORAGE_MONGODB: mongo/bws
+    volumes_from:
+    - drone-data-volume
+    external_links:
+    - MongoDB/mongo-cluster:mongo
+    labels:
+      io.rancher.sidekicks: drone-data-volume
+      io.rancher.scheduler.affinity:host_label: type=bitcore

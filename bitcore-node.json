@@ -1,0 +1,19 @@
+{
+  "network": "testnet",
+  "port": 3001,
+  "services": [
+    "@captemulation/bitcore-wallet-service",
+    "@captemulation/insight-api",
+    "@captemulation/insight-ui",
+    "bitcoind",
+    "web"
+  ],
+  "servicesConfig": {
+    "bitcoind": {
+      "spawn": {
+        "datadir": "/bitcoin",
+        "exec": "./node_modules/@captemulation/bitcore-node/bin/bitcoind"
+      }
+    }
+  }
+}
