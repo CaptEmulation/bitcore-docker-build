@@ -1,6 +1,6 @@
 # My bitcore docker build
 
-This is a docker build of bitcore + insight + wallet service.  This container is running on testnet at [bitcore.soapbubble.online](https://bitcore.soapbubble.online)
+This is a docker build of bitcore + insight + wallet service.  This container is running on testnet at [bitcore.soapbubble.online/insight](https://bitcore.soapbubble.online/insight)
 
 I am using many `@captemulation` namespaced bitcore packages to do this.
 
